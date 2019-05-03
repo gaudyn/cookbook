@@ -101,9 +101,6 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
             fatalError("Not inside a navigation controller")
         }
     }
-    @IBAction func deleteRecipe(_ sender: UIBarButtonItem) {
-        
-    }
     
     private func updateSaveButtonState(){
         if !recipeNameField.isEmpty(), !recipeUrlField.isEmpty(){
