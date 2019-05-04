@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+struct RecipeKind : Codable{
+    var kind: String
+    var recipes: [Recipe]
+}
+
 class Recipe: Codable{
     
     var Name: String

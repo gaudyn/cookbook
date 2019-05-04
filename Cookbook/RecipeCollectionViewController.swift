@@ -9,10 +9,7 @@
 import UIKit
 import os.log
 
-struct RecipeKind : Codable{
-    var kind: String
-    var recipes: [Recipe]
-}
+
 
 final class RecipeCollectionViewController: UICollectionViewController {
     
