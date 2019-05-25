@@ -132,7 +132,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter recipe's name" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gxR-K2-iCx">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter recipe's name" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gxR-K2-iCx">
                                                     <rect key="frame" x="73" y="6" width="321" height="31.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -163,7 +163,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter recipe's url" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqz-q9-rlm">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter recipe's url" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqz-q9-rlm">
                                                     <rect key="frame" x="60.5" y="6" width="333.5" height="31.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -215,7 +215,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="gpG-Gq-Olk" kind="show" trigger="accessoryAction" id="fdP-kw-DqF"/>
+                                            <segue destination="gpG-Gq-Olk" kind="show" id="pwU-bg-zr2"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -278,6 +278,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="deleteButton" destination="fKM-FG-sPr" id="1g7-zB-ou7"/>
+                        <outlet property="recipeImageCell" destination="5fz-DN-Mwv" id="BoJ-mp-5O0"/>
                         <outlet property="recipeImageView" destination="wu2-l6-6W4" id="rop-aT-Rcg"/>
                         <outlet property="recipeNameField" destination="gxR-K2-iCx" id="D5Y-vf-oWX"/>
                         <outlet property="recipeUrlField" destination="oqz-q9-rlm" id="yKe-Me-3OE"/>
@@ -324,6 +325,9 @@
                                         <constraint firstAttribute="trailing" secondItem="wGh-4H-qBC" secondAttribute="trailing" constant="20" id="emV-br-itN"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="6Vx-Au-gRX" kind="show" id="Y86-bz-TSH"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -333,12 +337,72 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Kinds" id="Tw9-FU-Ddz">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="wTP-hh-wMX"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EpG-u1-OAL"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EpG-u1-OAL">
+                            <connections>
+                                <segue destination="6Vx-Au-gRX" kind="show" identifier="newKind" id="sZB-p5-bfI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAj-gp-vko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4906" y="-60"/>
+        </scene>
+        <!--Kind-->
+        <scene sceneID="Of8-Cs-z5V">
+            <objects>
+                <tableViewController id="bVM-3P-3FX" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="GFY-GF-Pen">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Please, name the new kind of meals" id="iai-nk-8y4">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7VM-sC-7C0">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7VM-sC-7C0" id="dac-O0-xvq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtk-1l-Ibx">
+                                                    <rect key="frame" x="20" y="8" width="52" height="27.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter kind's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IoQ-18-HjG">
+                                                    <rect key="frame" x="80" y="8" width="314" height="27.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IoQ-18-HjG" firstAttribute="top" secondItem="dac-O0-xvq" secondAttribute="top" constant="8" id="3sC-eV-GgP"/>
+                                                <constraint firstItem="IoQ-18-HjG" firstAttribute="leading" secondItem="Wtk-1l-Ibx" secondAttribute="trailing" constant="8" id="H24-mL-Db7"/>
+                                                <constraint firstAttribute="bottom" secondItem="IoQ-18-HjG" secondAttribute="bottom" constant="8" id="IcQ-df-83L"/>
+                                                <constraint firstItem="Wtk-1l-Ibx" firstAttribute="top" secondItem="dac-O0-xvq" secondAttribute="top" constant="8" id="UdU-X4-O2n"/>
+                                                <constraint firstItem="Wtk-1l-Ibx" firstAttribute="leading" secondItem="dac-O0-xvq" secondAttribute="leading" constant="20" id="VfI-EE-1DC"/>
+                                                <constraint firstAttribute="trailing" secondItem="IoQ-18-HjG" secondAttribute="trailing" constant="20" id="dh7-3F-Fpf"/>
+                                                <constraint firstAttribute="bottom" secondItem="Wtk-1l-Ibx" secondAttribute="bottom" constant="8" id="pv7-Nu-otf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="bVM-3P-3FX" id="Czn-Mf-JIX"/>
+                            <outlet property="delegate" destination="bVM-3P-3FX" id="nF2-cw-La5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Kind" id="bac-x4-WdC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8cu-MX-InI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6439" y="-60"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lse-nK-UuT">
@@ -394,8 +458,29 @@
             </objects>
             <point key="canvasLocation" x="3996" y="-60"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1tY-Zd-7Nz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Vx-Au-gRX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6sH-vm-PnH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bVM-3P-3FX" kind="relationship" relationship="rootViewController" id="7J5-JA-shZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FVw-pa-RrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5643" y="-60"/>
+        </scene>
     </scenes>
     <resources>
         <image name="emptyPhoto" width="540" height="540"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="sZB-p5-bfI"/>
+    </inferredMetricsTieBreakers>
 </document>
