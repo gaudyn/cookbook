@@ -14,6 +14,7 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeNameField: UITextField!
     @IBOutlet weak var recipeUrlField: UITextField!
+    @IBOutlet weak var recipeImageCell: UITableViewCell!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -116,6 +117,13 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
         }else{
             deleteButton.isEnabled = true
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(indexPath.section == 2){
+            return recipeImageCell.frame.width
+        }
+        return recipeNameField.frame.height+16
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
