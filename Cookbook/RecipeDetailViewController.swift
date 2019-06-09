@@ -20,6 +20,7 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
     
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     
+    @IBOutlet weak var typeCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,21 +130,23 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        
-        guard let button = sender as? UIBarButtonItem else {
-            return
-        }
-        
-        if button === saveButton{
+        if let button = sender as? UIBarButtonItem {
             
-            let name = recipeNameField.text!
-            let url = URL(string: recipeUrlField.text!)!
-            let image = recipeImageView.image
+            if button === saveButton{
+                
+                let name = recipeNameField.text!
+                let url = URL(string: recipeUrlField.text!)!
+                let image = recipeImageView.image
+                
+                recipe = Recipe(name: name, photo: image, url: url)
+            }
             
-            recipe = Recipe(name: name, photo: image, url: url)
         }
     }
     
+    @IBAction func tappedTypes(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "showRecipeTypes", sender: typeCell)
+    }
     
     
     private func setupFieldsDelegates(){
