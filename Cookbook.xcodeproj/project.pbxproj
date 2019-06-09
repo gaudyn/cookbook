@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3440A2822AD79DF000C0697 /* TypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3440A2722AD79DF000C0697 /* TypesTableViewController.swift */; };
+		C3440A2A22AD7B0A000C0697 /* TypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3440A2922AD7B0A000C0697 /* TypeTableViewCell.swift */; };
 		C3515617226FC78600510732 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3515616226FC78600510732 /* RecipeDetailViewController.swift */; };
 		C386E8052276258E008B7E9F /* RecipeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C386E8042276258E008B7E9F /* RecipeHeaderView.swift */; };
 		C38BDEB2225BBA9300C7137D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BDEB1225BBA9300C7137D /* AppDelegate.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C3440A2722AD79DF000C0697 /* TypesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesTableViewController.swift; sourceTree = "<group>"; };
+		C3440A2922AD7B0A000C0697 /* TypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeTableViewCell.swift; sourceTree = "<group>"; };
 		C3515616226FC78600510732 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		C386E8022276239A008B7E9F /* Cookbook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cookbook.entitlements; sourceTree = "<group>"; };
 		C386E8042276258E008B7E9F /* RecipeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHeaderView.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				C386E8022276239A008B7E9F /* Cookbook.entitlements */,
 				C38BDEB1225BBA9300C7137D /* AppDelegate.swift */,
 				C38BDEB5225BBA9300C7137D /* Main.storyboard */,
+				C3440A2922AD7B0A000C0697 /* TypeTableViewCell.swift */,
+				C3440A2722AD79DF000C0697 /* TypesTableViewController.swift */,
 				C386E8042276258E008B7E9F /* RecipeHeaderView.swift */,
 				C3515616226FC78600510732 /* RecipeDetailViewController.swift */,
 				C3C2E575226BC2C200079486 /* RecipeCell.swift */,
@@ -294,7 +300,9 @@
 				C3C2E576226BC2C200079486 /* RecipeCell.swift in Sources */,
 				C386E8052276258E008B7E9F /* RecipeHeaderView.swift in Sources */,
 				C3515617226FC78600510732 /* RecipeDetailViewController.swift in Sources */,
+				C3440A2822AD79DF000C0697 /* TypesTableViewController.swift in Sources */,
 				C3C2E572226BB94200079486 /* RecipeClass.swift in Sources */,
+				C3440A2A22AD7B0A000C0697 /* TypeTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
