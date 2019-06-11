@@ -14,6 +14,9 @@ struct RecipeType: Codable{
 
 class TypesTableViewController: UITableViewController {
     
+    let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first
+    var typesURL: URL!
+    
     var recipeTypes = [RecipeType]()
     var selectedType: String!
     
@@ -21,6 +24,8 @@ class TypesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        typesURL = DocumentsDirectory?.appendingPathComponent("types")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -88,5 +93,23 @@ class TypesTableViewController: UITableViewController {
             }
         }
     }
+    
+    func saveTypes() throws{
+        let encodedTypes = try? JSONEncoder().encode(recipeTypes)
+        do{
+            try encodedTypes?.write(to: typesURL)
+        }catch{
+            print("Couldn't save data")
+        }
+    }
+    
+    func loadTypes() -> [RecipeType]?{
+        if let encodedData = try? Data(contentsOf: typesURL),
+            let encodedRecipes = try? JSONDecoder().decode([RecipeType].self, from: encodedData){
+                return encodedRecipes
+        }
+        return []
+    }
+    
 
 }
