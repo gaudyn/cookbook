@@ -132,7 +132,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter recipe's name" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gxR-K2-iCx">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gxR-K2-iCx">
                                                     <rect key="frame" x="73" y="6" width="321" height="31.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -163,7 +163,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter recipe's url" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqz-q9-rlm">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqz-q9-rlm">
                                                     <rect key="frame" x="60.5" y="6" width="333.5" height="31.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -217,7 +217,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="EjU-5S-mrQ" appends="YES" id="DIt-Tj-MF9"/>
-                                            <segue destination="gpG-Gq-Olk" kind="show" identifier="showRecipeTypes" id="5NN-7y-h44"/>
+                                            <segue destination="k6Y-pn-ig8" kind="show" identifier="showRecipeTypes" id="zgJ-HS-w6u"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -312,15 +312,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="TypeCell" id="JLC-XY-cM4" customClass="TypeTableViewCell" customModule="Cookbook" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TypeCell" id="JLC-XY-cM4" customClass="TypeTableViewCell" customModule="Cookbook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JLC-XY-cM4" id="fkb-WQ-Bdf">
-                                    <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGh-4H-qBC">
-                                            <rect key="frame" x="20" y="7" width="330" height="29.5"/>
+                                            <rect key="frame" x="20" y="7" width="374" height="29.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -335,7 +335,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="wGh-4H-qBC" id="e5Z-YR-4WO"/>
-                                    <segue destination="6Vx-Au-gRX" kind="show" id="Y86-bz-TSH"/>
+                                    <segue destination="6Vx-Au-gRX" kind="showDetail" identifier="editType" id="Y86-bz-TSH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -347,7 +347,7 @@
                     <navigationItem key="navigationItem" title="Categories" id="Tw9-FU-Ddz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EpG-u1-OAL">
                             <connections>
-                                <segue destination="6Vx-Au-gRX" kind="show" identifier="newKind" id="sZB-p5-bfI"/>
+                                <segue destination="6Vx-Au-gRX" kind="show" identifier="newType" id="sZB-p5-bfI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -356,11 +356,11 @@
             </objects>
             <point key="canvasLocation" x="4906" y="-60"/>
         </scene>
-        <!--Kind-->
+        <!--Category-->
         <scene sceneID="Of8-Cs-z5V">
             <objects>
-                <tableViewController id="bVM-3P-3FX" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="GFY-GF-Pen">
+                <tableViewController id="bVM-3P-3FX" customClass="TypeDetailTableViewController" customModule="Cookbook" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="GFY-GF-Pen">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -380,10 +380,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter kind's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IoQ-18-HjG">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IoQ-18-HjG">
                                                     <rect key="frame" x="80" y="8" width="314" height="27.5"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -406,12 +406,25 @@
                             <outlet property="delegate" destination="bVM-3P-3FX" id="nF2-cw-La5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Kind" id="bac-x4-WdC">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="YWl-VX-ftn"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mZd-Sd-oQg"/>
+                    <navigationItem key="navigationItem" title="Category" id="bac-x4-WdC">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="YWl-VX-ftn">
+                            <connections>
+                                <segue destination="nKX-v5-GDx" kind="unwind" unwindAction="unwindToTypesWithSenderWithSender:" id="7cu-vG-VbA"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mZd-Sd-oQg">
+                            <connections>
+                                <segue destination="nKX-v5-GDx" kind="unwind" unwindAction="unwindToTypesWithSenderWithSender:" id="0WS-2N-x41"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="mZd-Sd-oQg" id="fEy-7g-uWK"/>
+                        <outlet property="typeNameField" destination="IoQ-18-HjG" id="PvN-y1-qAx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8cu-MX-InI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nKX-v5-GDx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6439" y="-60"/>
         </scene>
@@ -467,7 +480,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bst-DI-I2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3996" y="-60"/>
+            <point key="canvasLocation" x="4000" y="311"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1tY-Zd-7Nz">
@@ -492,6 +505,7 @@
         <image name="emptyPhoto" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y86-bz-TSH"/>
+        <segue reference="sZB-p5-bfI"/>
+        <segue reference="zgJ-HS-w6u"/>
     </inferredMetricsTieBreakers>
 </document>

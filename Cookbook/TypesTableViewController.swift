@@ -20,17 +20,11 @@ class TypesTableViewController: UITableViewController {
         super.viewDidLoad()
 
         
-        addEditButton()
     }
-    
-    func addEditButton(){
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,8 +33,8 @@ class TypesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "KindCell", for: indexPath) as? TypeTableViewCell else{
-            fatalError("Wrong cell type in categories view")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCell", for: indexPath) as? TypeTableViewCell else{
+            fatalError("Wrong cell type in the categories view")
         }
 
         cell.nameLabel.text = recipeTypes[indexPath.row].name
@@ -49,19 +43,18 @@ class TypesTableViewController: UITableViewController {
     }
 
     
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    
-    @IBAction func unwindToSave(sender: UIStoryboard){
+    @IBAction func unwindToTypesWithSender(sender: UIStoryboardSegue){
+        guard let sourceView = sender.source as? TypeDetailTableViewController else {
+            fatalError("Unexpected sender \(sender)")
+        }
+        if sourceView.saving{
+            recipeTypes.append(RecipeType(name: sourceView.typeNameField.text!))
+            tableView.insertRows(at: [IndexPath(row: recipeTypes.count-1, section: 0)], with: .automatic)
+        }
         
     }
+    
+    
 
     /*
     // MARK: - Navigation
