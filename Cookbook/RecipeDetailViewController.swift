@@ -129,6 +129,13 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
         return recipeNameField.frame.height+16
     }
     
+    @IBAction func unwindToChooseType(_ sender: UIStoryboardSegue){
+        guard let sourceView = sender.source as? TypesTableViewController else{
+            fatalError("Unknown source \(sender)")
+        }
+        recipeType = sourceView.selectedType
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         

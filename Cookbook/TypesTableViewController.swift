@@ -15,6 +15,7 @@ struct RecipeType: Codable{
 class TypesTableViewController: UITableViewController {
     
     var recipeTypes = [RecipeType]()
+    var selectedType: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
