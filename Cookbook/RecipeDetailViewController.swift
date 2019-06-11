@@ -107,7 +107,7 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
     }
     
     private func updateSaveButtonState(){
-        if !recipeNameField.isEmpty(), !recipeUrlField.isEmpty(), recipeType.isEmpty{
+        if !recipeNameField.isEmpty(), !recipeUrlField.isEmpty(), recipeType?.isEmpty ?? false{
             saveButton.isEnabled = true
         }else{
             saveButton.isEnabled = false
