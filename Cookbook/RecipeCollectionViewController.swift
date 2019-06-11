@@ -78,10 +78,18 @@ final class RecipeCollectionViewController: UICollectionViewController {
                 collectionView.reloadItems(at: [selectedIndexPath!])
                 selectedIndexPath = nil
             }else{
-                //IMPLEMENT ADDING SECTIONS
-                let section = 0
-                let newIndexPath = IndexPath(row: recipeKinds[section].recipes.count, section: section)
-                recipeKinds[section].recipes.append(recipe)
+                let sectionName = sourceViewController.recipeType
+                var newIndexPath: IndexPath!
+                if let section = recipeKinds.firstIndex(where: {recipeKind in return recipeKind.kind == sectionName }){
+                    newIndexPath = IndexPath(row: recipeKinds![section].recipes.count, section: section)
+                    recipeKinds![section].recipes.append(recipe)
+                }else{
+                    let newSection = recipeKinds.count
+                    collectionView.insertSections(IndexSet(integer: newSection))
+                    newIndexPath = IndexPath(row: recipeKinds![newSection].recipes.count, section: newSection)
+                    recipeKinds![newSection].recipes.append(recipe)
+                }
+                
                 collectionView.insertItems(at: [newIndexPath])
             }
             try? saveRecipes()

@@ -16,6 +16,8 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
     @IBOutlet weak var recipeUrlField: UITextField!
     @IBOutlet weak var recipeImageCell: UITableViewCell!
     
+    var recipeType: String!
+    
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var deleteButton: UIBarButtonItem!
@@ -105,7 +107,7 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
     }
     
     private func updateSaveButtonState(){
-        if !recipeNameField.isEmpty(), !recipeUrlField.isEmpty(){
+        if !recipeNameField.isEmpty(), !recipeUrlField.isEmpty(), recipeType.isEmpty{
             saveButton.isEnabled = true
         }else{
             saveButton.isEnabled = false
