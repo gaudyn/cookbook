@@ -191,28 +191,33 @@
                             </tableViewSection>
                             <tableViewSection id="FPM-mc-wwt">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="dp3-8B-rup" detailTextLabel="nlk-r5-p8z" style="IBUITableViewCellStyleValue1" id="5S0-4K-i4d">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5S0-4K-i4d">
                                         <rect key="frame" x="0.0" y="159" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5S0-4K-i4d" id="m6c-X1-wnL">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dp3-8B-rup">
-                                                    <rect key="frame" x="20" y="12" width="70.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V88-vq-asO">
+                                                    <rect key="frame" x="20" y="11.5" width="314" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Choose" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nlk-r5-p8z">
-                                                    <rect key="frame" x="317" y="12" width="59" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kX-Qc-mm0">
+                                                    <rect key="frame" x="334" y="11.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2kX-Qc-mm0" firstAttribute="centerY" secondItem="m6c-X1-wnL" secondAttribute="centerY" id="8Zb-En-cY3"/>
+                                                <constraint firstItem="2kX-Qc-mm0" firstAttribute="leading" secondItem="V88-vq-asO" secondAttribute="trailing" id="AuC-pI-iJ7"/>
+                                                <constraint firstItem="V88-vq-asO" firstAttribute="centerY" secondItem="m6c-X1-wnL" secondAttribute="centerY" id="Fih-ge-x7c"/>
+                                                <constraint firstAttribute="trailing" secondItem="2kX-Qc-mm0" secondAttribute="trailing" id="Xd3-iQ-q8R"/>
+                                                <constraint firstItem="V88-vq-asO" firstAttribute="leading" secondItem="m6c-X1-wnL" secondAttribute="leadingMargin" id="knF-F8-gv3"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                         <connections>
@@ -286,6 +291,7 @@
                         <outlet property="recipeUrlField" destination="oqz-q9-rlm" id="yKe-Me-3OE"/>
                         <outlet property="saveButton" destination="Alu-Hy-a55" id="Uyi-cj-Som"/>
                         <outlet property="typeCell" destination="5S0-4K-i4d" id="Oqh-rh-rVE"/>
+                        <outlet property="typeLabel" destination="2kX-Qc-mm0" id="Dyf-5t-qDT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLC-cT-5yA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -307,7 +313,7 @@
         <scene sceneID="kZz-5F-zF3">
             <objects>
                 <tableViewController id="k6Y-pn-ig8" customClass="TypesTableViewController" customModule="Cookbook" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pyj-V1-995">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pyj-V1-995">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -335,7 +341,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="wGh-4H-qBC" id="e5Z-YR-4WO"/>
-                                    <segue destination="6Vx-Au-gRX" kind="showDetail" identifier="editType" id="Y86-bz-TSH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -347,7 +352,7 @@
                     <navigationItem key="navigationItem" title="Categories" id="Tw9-FU-Ddz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EpG-u1-OAL">
                             <connections>
-                                <segue destination="6Vx-Au-gRX" kind="show" identifier="newType" id="sZB-p5-bfI"/>
+                                <segue destination="6Vx-Au-gRX" kind="show" identifier="addType" id="srh-1n-5Sw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -505,7 +510,6 @@
         <image name="emptyPhoto" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sZB-p5-bfI"/>
         <segue reference="zgJ-HS-w6u"/>
     </inferredMetricsTieBreakers>
 </document>

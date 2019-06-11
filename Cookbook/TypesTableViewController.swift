@@ -16,11 +16,15 @@ class TypesTableViewController: UITableViewController {
     
     var recipeTypes = [RecipeType]()
     var selectedType: String!
-
+    
+    var movingForward = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        movingForward = false
     }
     // MARK: - Table view data source
 
@@ -39,6 +43,7 @@ class TypesTableViewController: UITableViewController {
         }
 
         cell.nameLabel.text = recipeTypes[indexPath.row].name
+        cell.accessoryType = .none
         
         return cell
     }
@@ -55,16 +60,33 @@ class TypesTableViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        selectedType = recipeTypes[indexPath.row].name
+        tableView.reloadData()
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        //tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        movingForward = true
+    }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !movingForward{
+            let navigationStack = navigationController!.viewControllers
+            guard let detailView = navigationStack[navigationStack.count-1] as? RecipeDetailViewController else{
+                fatalError("Unexpected parent")
+            }
+            if selectedType != nil{
+                detailView.recipeType = selectedType
+                detailView.typeLabel.text = selectedType
+            }
+        }
     }
-    */
 
 }

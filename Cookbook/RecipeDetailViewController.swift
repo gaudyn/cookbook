@@ -16,7 +16,7 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
     @IBOutlet weak var recipeUrlField: UITextField!
     @IBOutlet weak var recipeImageCell: UITableViewCell!
     
-    var recipeType: String!
+    var recipeType: String?
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -24,6 +24,7 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
     
     @IBOutlet weak var typeCell: UITableViewCell!
     
+    @IBOutlet weak var typeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +40,9 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
         updateSaveButtonState()
         
         updateDeleteButtonState()
+        
+        typeLabel.text = recipeType ?? ""
+        
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
