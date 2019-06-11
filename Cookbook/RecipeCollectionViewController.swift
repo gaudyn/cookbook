@@ -21,14 +21,14 @@ final class RecipeCollectionViewController: UICollectionViewController {
     private var recipeKinds: [RecipeKind]!
     
     let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first
-    var ArchiveURL: URL!
+    var recipesURL: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
         
-        ArchiveURL = DocumentsDirectory?.appendingPathComponent("recipes")
+        recipesURL = DocumentsDirectory?.appendingPathComponent("recipes")
         if let savedRecipes = loadRecipes(){
             recipeKinds = savedRecipes
         }
@@ -176,7 +176,7 @@ final class RecipeCollectionViewController: UICollectionViewController {
     func saveRecipes() throws{
         let encodedRecipes = try? JSONEncoder().encode(recipeKinds)
         do{
-            try encodedRecipes?.write(to: ArchiveURL)
+            try encodedRecipes?.write(to: recipesURL)
         }catch{
             print("Couldn't save data")
         }
@@ -184,7 +184,7 @@ final class RecipeCollectionViewController: UICollectionViewController {
     }
     
     func loadRecipes() -> [RecipeKind]?{
-        if let encodedData = try? Data(contentsOf: ArchiveURL){
+        if let encodedData = try? Data(contentsOf: recipesURL){
             if let encodedRecipes = try? JSONDecoder().decode([RecipeKind].self, from: encodedData){
                 return encodedRecipes
             }
