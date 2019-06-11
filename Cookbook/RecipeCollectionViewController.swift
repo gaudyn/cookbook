@@ -32,8 +32,6 @@ final class RecipeCollectionViewController: UICollectionViewController {
         if let savedRecipes = loadRecipes(){
             recipeKinds = savedRecipes
         }
-        
-        recipeKinds.append(RecipeKind(kind: "Wanna cook", recipes: []))
     }
     
     /*
