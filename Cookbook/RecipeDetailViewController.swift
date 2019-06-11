@@ -44,6 +44,10 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
         typeLabel.text = recipeType ?? ""
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateSaveButtonState()
+    }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         updateSaveButtonState()
@@ -111,11 +115,18 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
     }
     
     private func updateSaveButtonState(){
-        if !recipeNameField.isEmpty(), !recipeUrlField.isEmpty(), recipeType?.isEmpty ?? false{
+        if !recipeNameField.isEmpty(), !recipeUrlField.isEmpty(), !isRecipeTypeEmpty(){
             saveButton.isEnabled = true
         }else{
             saveButton.isEnabled = false
         }
+    }
+    
+    private func isRecipeTypeEmpty() -> Bool{
+        if recipeType != nil, !recipeType!.isEmpty{
+            return false
+        }
+        return true
     }
     
     private func updateDeleteButtonState(){
@@ -131,13 +142,6 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
             return recipeImageCell.frame.width
         }
         return recipeNameField.frame.height+16
-    }
-    
-    @IBAction func unwindToChooseType(_ sender: UIStoryboardSegue){
-        guard let sourceView = sender.source as? TypesTableViewController else{
-            fatalError("Unknown source \(sender)")
-        }
-        recipeType = sourceView.selectedType
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
