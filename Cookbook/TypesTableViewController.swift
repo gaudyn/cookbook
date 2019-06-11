@@ -26,6 +26,10 @@ class TypesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         typesURL = DocumentsDirectory?.appendingPathComponent("types")
+        
+        if let loadedTypes = loadTypes(){
+            recipeTypes = loadedTypes
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,6 +65,7 @@ class TypesTableViewController: UITableViewController {
         if sourceView.saving{
             recipeTypes.append(RecipeType(name: sourceView.typeNameField.text!))
             tableView.insertRows(at: [IndexPath(row: recipeTypes.count-1, section: 0)], with: .automatic)
+            try? saveTypes()
         }
         
     }
