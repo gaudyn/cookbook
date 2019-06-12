@@ -52,12 +52,21 @@ class TypesTableViewController: UITableViewController {
         }
 
         cell.nameLabel.text = recipeTypes[indexPath.row].name
-        if cell.nameLabel.text == selectedType{
+        
+        if isCellSelected(cell){
             cell.accessoryType = .checkmark
         }else{
             cell.accessoryType = .none
         }
+        
         return cell
+    }
+    
+    private func isCellSelected(_ cell: TypeTableViewCell) -> Bool{
+        if cell.nameLabel.text == selectedType{
+            return true
+        }
+        return false
     }
 
     
