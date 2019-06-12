@@ -132,7 +132,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gxR-K2-iCx">
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gxR-K2-iCx">
                                                     <rect key="frame" x="73" y="6" width="321" height="31.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -163,27 +163,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqz-q9-rlm">
-                                                    <rect key="frame" x="60.5" y="6" width="333.5" height="31.5"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqz-q9-rlm">
+                                                    <rect key="frame" x="60.5" y="7" width="333.5" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" textContentType="url"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lN5-Te-B31">
-                                                    <rect key="frame" x="20" y="6" width="32.5" height="31.5"/>
+                                                    <rect key="frame" x="20" y="11.5" width="32.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="lN5-Te-B31" firstAttribute="top" secondItem="uGh-cx-yST" secondAttribute="top" constant="6" id="1fl-rk-48P"/>
-                                                <constraint firstAttribute="bottom" secondItem="oqz-q9-rlm" secondAttribute="bottom" constant="6" id="2LZ-Vh-gHw"/>
                                                 <constraint firstItem="lN5-Te-B31" firstAttribute="leading" secondItem="uGh-cx-yST" secondAttribute="leading" constant="20" id="HCq-ng-ntC"/>
+                                                <constraint firstItem="oqz-q9-rlm" firstAttribute="leading" secondItem="lN5-Te-B31" secondAttribute="trailing" constant="8" id="Lej-0W-ahN"/>
+                                                <constraint firstItem="lN5-Te-B31" firstAttribute="centerY" secondItem="uGh-cx-yST" secondAttribute="centerY" id="Tnx-3n-OJt"/>
                                                 <constraint firstAttribute="trailing" secondItem="oqz-q9-rlm" secondAttribute="trailing" constant="20" id="Zxh-ik-UBr"/>
-                                                <constraint firstItem="oqz-q9-rlm" firstAttribute="leading" secondItem="lN5-Te-B31" secondAttribute="trailing" constant="8" id="a1M-T6-3Sd"/>
-                                                <constraint firstAttribute="bottom" secondItem="lN5-Te-B31" secondAttribute="bottom" constant="6" id="jIU-Pw-Fn0"/>
-                                                <constraint firstItem="oqz-q9-rlm" firstAttribute="top" secondItem="uGh-cx-yST" secondAttribute="top" constant="6" id="tHq-2W-87h"/>
+                                                <constraint firstItem="oqz-q9-rlm" firstAttribute="centerY" secondItem="uGh-cx-yST" secondAttribute="centerY" id="m1V-ch-Of4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -385,7 +383,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IoQ-18-HjG">
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IoQ-18-HjG">
                                                     <rect key="frame" x="80" y="8" width="314" height="27.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
