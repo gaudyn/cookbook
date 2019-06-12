@@ -60,6 +60,7 @@ final class RecipeCollectionViewController: UICollectionViewController {
         if let selectedRecipe = cellTouched(sender: sender){
             let viewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Recipe detail") as! RecipeDetailViewController
             viewController.recipe = selectedRecipe
+            viewController.recipeType = recipeKinds![selectedIndexPath!.section].kind
             self.navigationController?.pushViewController(viewController, animated: true)
         }
         
@@ -98,6 +99,9 @@ final class RecipeCollectionViewController: UICollectionViewController {
             if selectedIndexPath != nil{
                 
                 recipeKinds[selectedIndexPath!.section].recipes.remove(at: selectedIndexPath!.row)
+                if recipeKinds[selectedIndexPath!.section].recipes.count == 0{
+                    recipeKinds.remove(at: selectedIndexPath!.section)
+                }
                 collectionView.reloadData()
                 selectedIndexPath = nil
                 try? saveRecipes()
