@@ -147,6 +147,17 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
+        if let cell = sender as? UITableViewCell, cell === typeCell{
+            
+            guard let dest = segue.destination as? TypesTableViewController else{
+                fatalError("Unknown segue \(segue)")
+            }
+            
+            if recipeType != nil, !recipeType!.isEmpty{
+                dest.selectedType = recipeType
+            }
+        }
+        
         if let button = sender as? UIBarButtonItem {
             
             if button === saveButton{

@@ -52,8 +52,11 @@ class TypesTableViewController: UITableViewController {
         }
 
         cell.nameLabel.text = recipeTypes[indexPath.row].name
-        cell.accessoryType = .none
-        
+        if cell.nameLabel.text == selectedType{
+            cell.accessoryType = .checkmark
+        }else{
+            cell.accessoryType = .none
+        }
         return cell
     }
 
