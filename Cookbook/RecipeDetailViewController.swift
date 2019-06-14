@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -74,6 +75,21 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
         
         hideKeyboard()
         
+        let permission = PHPhotoLibrary.authorizationStatus()
+        
+        if permission == .notDetermined{
+            PHPhotoLibrary.requestAuthorization({status in
+                if status == .authorized{
+                    self.presentImagePicker()
+                }
+            })
+        }else if permission == .authorized{
+            presentImagePicker()
+        }
+        
+    }
+    
+    private func presentImagePicker(){
         let imagePickerController = UIImagePickerController()
         
         imagePickerController.sourceType = .photoLibrary
@@ -81,7 +97,6 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
         imagePickerController.allowsEditing = true
         
         present(imagePickerController, animated: true, completion: nil)
-        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
