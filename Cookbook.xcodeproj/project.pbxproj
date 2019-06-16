@@ -39,10 +39,10 @@
 		C3440A2922AD7B0A000C0697 /* TypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeTableViewCell.swift; sourceTree = "<group>"; };
 		C3440A2D22AD8663000C0697 /* TypeDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDetailTableViewController.swift; sourceTree = "<group>"; };
 		C3515616226FC78600510732 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
-		C36E5CD822B6BE4100B01073 /* categories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = categories.png; path = ../../../../Desktop/categories.png; sourceTree = "<group>"; };
-		C36E5CD922B6BE4100B01073 /* recipe-detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "recipe-detail.png"; path = "../../../../Desktop/recipe-detail.png"; sourceTree = "<group>"; };
-		C36E5CDA22B6BE4100B01073 /* new-category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new-category.png"; path = "../../../../Desktop/new-category.png"; sourceTree = "<group>"; };
-		C36E5CDB22B6BE4100B01073 /* my-recipies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "my-recipies.png"; path = "../../../../Desktop/my-recipies.png"; sourceTree = "<group>"; };
+		C36E5CDF22B6BFEB00B01073 /* recipe-detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipe-detail.png"; sourceTree = "<group>"; };
+		C36E5CE022B6BFEB00B01073 /* my-recipies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my-recipies.png"; sourceTree = "<group>"; };
+		C36E5CE122B6BFEB00B01073 /* new-category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new-category.png"; sourceTree = "<group>"; };
+		C36E5CE222B6BFEB00B01073 /* categories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = categories.png; sourceTree = "<group>"; };
 		C386E8022276239A008B7E9F /* Cookbook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cookbook.entitlements; sourceTree = "<group>"; };
 		C386E8042276258E008B7E9F /* RecipeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHeaderView.swift; sourceTree = "<group>"; };
 		C38BDEAE225BBA9300C7137D /* Cookbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cookbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,21 +67,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C36E5CD622B6BDF900B01073 /* docs */ = {
+		C36E5CDD22B6BFEB00B01073 /* docs */ = {
 			isa = PBXGroup;
 			children = (
-				C36E5CD722B6BE0400B01073 /* pictures */,
+				C36E5CDE22B6BFEB00B01073 /* pictures */,
 			);
 			path = docs;
 			sourceTree = "<group>";
 		};
-		C36E5CD722B6BE0400B01073 /* pictures */ = {
+		C36E5CDE22B6BFEB00B01073 /* pictures */ = {
 			isa = PBXGroup;
 			children = (
-				C36E5CDB22B6BE4100B01073 /* my-recipies.png */,
-				C36E5CD922B6BE4100B01073 /* recipe-detail.png */,
-				C36E5CD822B6BE4100B01073 /* categories.png */,
-				C36E5CDA22B6BE4100B01073 /* new-category.png */,
+				C36E5CDF22B6BFEB00B01073 /* recipe-detail.png */,
+				C36E5CE022B6BFEB00B01073 /* my-recipies.png */,
+				C36E5CE122B6BFEB00B01073 /* new-category.png */,
+				C36E5CE222B6BFEB00B01073 /* categories.png */,
 			);
 			path = pictures;
 			sourceTree = "<group>";
@@ -89,9 +89,9 @@
 		C38BDEA5225BBA9300C7137D = {
 			isa = PBXGroup;
 			children = (
-				C36E5CD622B6BDF900B01073 /* docs */,
 				C38BDEB0225BBA9300C7137D /* Cookbook */,
 				C38BDEAF225BBA9300C7137D /* Products */,
+				C36E5CDD22B6BFEB00B01073 /* docs */,
 			);
 			sourceTree = "<group>";
 		};
