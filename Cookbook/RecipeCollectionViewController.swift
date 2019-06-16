@@ -21,19 +21,17 @@ final class RecipeCollectionViewController: UICollectionViewController {
     private var recipeKinds: [RecipeKind]!
     
     let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first
-    var ArchiveURL: URL!
+    var recipesURL: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
         
-        ArchiveURL = DocumentsDirectory?.appendingPathComponent("recipes")
+        recipesURL = DocumentsDirectory?.appendingPathComponent("recipes")
         if let savedRecipes = loadRecipes(){
             recipeKinds = savedRecipes
         }
-        
-        recipeKinds.append(RecipeKind(kind: "Wanna cook", recipes: []))
     }
     
     /*
@@ -62,6 +60,7 @@ final class RecipeCollectionViewController: UICollectionViewController {
         if let selectedRecipe = cellTouched(sender: sender){
             let viewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Recipe detail") as! RecipeDetailViewController
             viewController.recipe = selectedRecipe
+            viewController.recipeType = recipeKinds![selectedIndexPath!.section].kind
             self.navigationController?.pushViewController(viewController, animated: true)
         }
         
@@ -71,18 +70,46 @@ final class RecipeCollectionViewController: UICollectionViewController {
     
     @IBAction func unwindToRecipeCollectionView(sender: UIStoryboardSegue){
         if let sourceViewController = sender.source as? RecipeDetailViewController,
-            let recipe = sourceViewController.recipe{
+            let recipe = sourceViewController.recipe,
+            let sectionName = sourceViewController.recipeType{
             
             if selectedIndexPath != nil{
+                if sectionName != recipeKinds[selectedIndexPath!.section].kind{
+                    
+                    if recipeKinds.firstIndex(where: { recipeKind in return recipeKind.kind == sectionName}) == nil{
+                        recipeKinds.append(RecipeKind(kind: sectionName, recipes: []))
+                        collectionView.insertSections(IndexSet(integer: recipeKinds.count-1))
+                    }
+                    
+                    let newSection = recipeKinds.firstIndex(where: { recipeKind in return recipeKind.kind == sectionName})!
+                    
+                    recipeKinds[selectedIndexPath!.section].recipes.remove(at: selectedIndexPath!.row)
+                    recipeKinds![newSection].recipes.append(recipe)
+                    
+                    collectionView.moveItem(at: selectedIndexPath!, to: IndexPath(row: recipeKinds[newSection].recipes.count-1, section: newSection))
+                    
+                    if isSectionEmpty(selectedIndexPath!.section){
+                        recipeKinds.remove(at: selectedIndexPath!.section)
+                        collectionView.deleteSections(IndexSet(integer: selectedIndexPath!.section))
+                    }
+                    
+                }else{
                 recipeKinds[selectedIndexPath!.section].recipes[selectedIndexPath!.row] = recipe
                 collectionView.reloadItems(at: [selectedIndexPath!])
+                }
                 selectedIndexPath = nil
             }else{
-                //IMPLEMENT ADDING SECTIONS
-                let section = 0
-                let newIndexPath = IndexPath(row: recipeKinds[section].recipes.count, section: section)
-                recipeKinds[section].recipes.append(recipe)
-                collectionView.insertItems(at: [newIndexPath])
+                if let section = recipeKinds.firstIndex(where: {recipeKind in return recipeKind.kind == sectionName }){
+                    recipeKinds![section].recipes.append(recipe)
+                    
+                }else{
+                    let newSection = recipeKinds.count
+                    recipeKinds.append(RecipeKind(kind: sectionName, recipes: [recipe]))
+                    collectionView.insertSections(IndexSet(integer: newSection))
+                    
+                }
+                
+                collectionView.reloadData()
             }
             try? saveRecipes()
         }
@@ -93,12 +120,19 @@ final class RecipeCollectionViewController: UICollectionViewController {
             if selectedIndexPath != nil{
                 
                 recipeKinds[selectedIndexPath!.section].recipes.remove(at: selectedIndexPath!.row)
+                if isSectionEmpty(selectedIndexPath!.section){
+                    recipeKinds.remove(at: selectedIndexPath!.section)
+                }
                 collectionView.reloadData()
                 selectedIndexPath = nil
                 try? saveRecipes()
                 
             }
         }
+    }
+    
+    private func isSectionEmpty(_ section: Int) -> Bool{
+        return recipeKinds[section].recipes.count == 0
     }
     
     // MARK: UICollectionViewDataSource
@@ -170,7 +204,7 @@ final class RecipeCollectionViewController: UICollectionViewController {
     func saveRecipes() throws{
         let encodedRecipes = try? JSONEncoder().encode(recipeKinds)
         do{
-            try encodedRecipes?.write(to: ArchiveURL)
+            try encodedRecipes?.write(to: recipesURL)
         }catch{
             print("Couldn't save data")
         }
@@ -178,7 +212,7 @@ final class RecipeCollectionViewController: UICollectionViewController {
     }
     
     func loadRecipes() -> [RecipeKind]?{
-        if let encodedData = try? Data(contentsOf: ArchiveURL){
+        if let encodedData = try? Data(contentsOf: recipesURL){
             if let encodedRecipes = try? JSONDecoder().decode([RecipeKind].self, from: encodedData){
                 return encodedRecipes
             }

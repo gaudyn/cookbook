@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -16,11 +17,15 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
     @IBOutlet weak var recipeUrlField: UITextField!
     @IBOutlet weak var recipeImageCell: UITableViewCell!
     
+    var recipeType: String?
+    
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     
+    @IBOutlet weak var typeCell: UITableViewCell!
     
+    @IBOutlet weak var typeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +41,13 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
         updateSaveButtonState()
         
         updateDeleteButtonState()
+        
+        typeLabel.text = recipeType ?? ""
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateSaveButtonState()
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -63,6 +75,21 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
         
         hideKeyboard()
         
+        let permission = PHPhotoLibrary.authorizationStatus()
+        
+        if permission == .notDetermined{
+            PHPhotoLibrary.requestAuthorization({status in
+                if status == .authorized{
+                    self.presentImagePicker()
+                }
+            })
+        }else if permission == .authorized{
+            presentImagePicker()
+        }
+        
+    }
+    
+    private func presentImagePicker(){
         let imagePickerController = UIImagePickerController()
         
         imagePickerController.sourceType = .photoLibrary
@@ -70,7 +97,6 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
         imagePickerController.allowsEditing = true
         
         present(imagePickerController, animated: true, completion: nil)
-        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -104,11 +130,18 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
     }
     
     private func updateSaveButtonState(){
-        if !recipeNameField.isEmpty(), !recipeUrlField.isEmpty(){
+        if !recipeNameField.isEmpty(), !recipeUrlField.isEmpty(), !isRecipeTypeEmpty(){
             saveButton.isEnabled = true
         }else{
             saveButton.isEnabled = false
         }
+    }
+    
+    private func isRecipeTypeEmpty() -> Bool{
+        if recipeType != nil, !recipeType!.isEmpty{
+            return false
+        }
+        return true
     }
     
     private func updateDeleteButtonState(){
@@ -129,21 +162,34 @@ class RecipeDetailViewController: UITableViewController, UITextFieldDelegate, UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        
-        guard let button = sender as? UIBarButtonItem else {
-            return
+        if let cell = sender as? UITableViewCell, cell === typeCell{
+            
+            guard let dest = segue.destination as? TypesTableViewController else{
+                fatalError("Unknown segue \(segue)")
+            }
+            
+            if recipeType != nil, !recipeType!.isEmpty{
+                dest.selectedType = recipeType
+            }
         }
         
-        if button === saveButton{
+        if let button = sender as? UIBarButtonItem {
             
-            let name = recipeNameField.text!
-            let url = URL(string: recipeUrlField.text!)!
-            let image = recipeImageView.image
+            if button === saveButton{
+                
+                let name = recipeNameField.text!
+                let url = URL(string: recipeUrlField.text!)!
+                let image = recipeImageView.image
+                
+                recipe = Recipe(name: name, photo: image, url: url)
+            }
             
-            recipe = Recipe(name: name, photo: image, url: url)
         }
     }
     
+    @IBAction func tappedTypes(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "showRecipeTypes", sender: typeCell)
+    }
     
     
     private func setupFieldsDelegates(){
