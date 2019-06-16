@@ -2,8 +2,8 @@
 //  RecipeViewCell.swift
 //  Cookbook
 //
-//  Created by Administrator on 20/04/2019.
-//  Copyright © 2019 Gaudyn. All rights reserved.
+//  Created by Gniewomir Gaudyn on 20/04/2019.
+//  Copyright © 2019 Gniewomir Gaudyn. All rights reserved.
 //
 
 import UIKit

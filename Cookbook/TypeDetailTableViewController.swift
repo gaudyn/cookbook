@@ -2,8 +2,8 @@
 //  TypeDetailTableViewController.swift
 //  Cookbook
 //
-//  Created by Administrator on 09/06/2019.
-//  Copyright © 2019 Gaudyn. All rights reserved.
+//  Created by Gniewomir Gaudyn on 09/06/2019.
+//  Copyright © 2019 Gniewomir Gaudyn. All rights reserved.
 //
 
 import UIKit

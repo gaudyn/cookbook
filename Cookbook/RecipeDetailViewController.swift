@@ -2,8 +2,8 @@
 //  RecipeDetailViewController.swift
 //  Cookbook
 //
-//  Created by Administrator on 24/04/2019.
-//  Copyright © 2019 Gaudyn. All rights reserved.
+//  Created by Gniewomir Gaudyn on 24/04/2019.
+//  Copyright © 2019 Gniewomir Gaudyn. All rights reserved.
 //
 
 import UIKit
