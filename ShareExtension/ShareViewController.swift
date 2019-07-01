@@ -41,7 +41,7 @@ class ShareViewController: SLComposeServiceViewController {
     }
 
     override func isContentValid() -> Bool {
-        if urlString != nil{
+        if urlString != nil, !self.textView.text.isEmpty{
             return true
         }
         return false
@@ -56,6 +56,7 @@ class ShareViewController: SLComposeServiceViewController {
 
     override func configurationItems() -> [Any]! {
         // To add configuration options via table cells at the bottom of the sheet, return an array of SLComposeSheetConfigurationItem here.
+        
         return []
     }
 
