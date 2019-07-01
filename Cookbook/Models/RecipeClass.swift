@@ -16,6 +16,9 @@ struct RecipeKind : Codable{
 
 class Recipe: Codable{
     
+    static let documentsDirectory = FileManager.sharedContainerURL()
+    static let recipesURL = documentsDirectory.appendingPathComponent("recipes")
+    
     var Name: String
     var Photo: UIImage?
     var Url: URL?
@@ -59,6 +62,25 @@ class Recipe: Codable{
         self.Photo = UIImage.init(data: photoData)
         
         
+    }
+    
+    class func saveRecipes(recipeKinds: [RecipeKind]) throws{
+        let encodedRecipes = try? JSONEncoder().encode(recipeKinds)
+        do{
+            try encodedRecipes?.write(to: recipesURL)
+        }catch{
+            print("Couldn't save data")
+        }
+        
+    }
+    
+    class func loadRecipes() -> [RecipeKind]?{
+        if let encodedData = try? Data(contentsOf: recipesURL){
+            if let encodedRecipes = try? JSONDecoder().decode([RecipeKind].self, from: encodedData){
+                return encodedRecipes
+            }
+        }
+        return []
     }
     
 }

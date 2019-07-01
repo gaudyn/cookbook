@@ -27,9 +27,7 @@ final class RecipeCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        
-        recipesURL = DocumentsDirectory.appendingPathComponent("recipes")
-        if let savedRecipes = loadRecipes(){
+        if let savedRecipes = Recipe.loadRecipes(){
             recipeKinds = savedRecipes
         }
     }
@@ -111,7 +109,7 @@ final class RecipeCollectionViewController: UICollectionViewController {
                 
                 collectionView.reloadData()
             }
-            try? saveRecipes()
+            try? Recipe.saveRecipes(recipeKinds: recipeKinds)
         }
     }
     
@@ -125,7 +123,7 @@ final class RecipeCollectionViewController: UICollectionViewController {
                 }
                 collectionView.reloadData()
                 selectedIndexPath = nil
-                try? saveRecipes()
+                try? Recipe.saveRecipes(recipeKinds: recipeKinds)
                 
             }
         }
@@ -201,24 +199,7 @@ final class RecipeCollectionViewController: UICollectionViewController {
     
     
     
-    func saveRecipes() throws{
-        let encodedRecipes = try? JSONEncoder().encode(recipeKinds)
-        do{
-            try encodedRecipes?.write(to: recipesURL)
-        }catch{
-            print("Couldn't save data")
-        }
-        
-    }
     
-    func loadRecipes() -> [RecipeKind]?{
-        if let encodedData = try? Data(contentsOf: recipesURL){
-            if let encodedRecipes = try? JSONDecoder().decode([RecipeKind].self, from: encodedData){
-                return encodedRecipes
-            }
-        }
-        return []
-    }
     
 }
 extension UIView{

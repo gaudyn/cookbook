@@ -40,9 +40,20 @@ class ShareViewController: SLComposeServiceViewController {
     }
 
     override func didSelectPost() {
-        // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
-    
-        // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
+        let recipe = Recipe(name: self.textView.text, photo: #imageLiteral(resourceName: "emptyPhoto"), url: URL(string: urlString!)!)
+        
+        var savedRecipes = Recipe.loadRecipes()!
+        
+        if let index = savedRecipes.firstIndex(where: { recipeKind in return recipeKind.kind == selectedType!.name}){
+            savedRecipes[index].recipes.append(recipe!)
+        }else{
+            savedRecipes.append(RecipeKind(kind: selectedType!.name, recipes: [recipe!]))
+        }
+        
+        try? Recipe.saveRecipes(recipeKinds: savedRecipes)
+        
+        
+        
         self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
     }
 
