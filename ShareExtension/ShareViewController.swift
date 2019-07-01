@@ -14,7 +14,6 @@ import MobileCoreServices
 class ShareViewController: SLComposeServiceViewController {
     
     var urlString: String?
-    var name: String?
     var selectedType: RecipeType?
     
     var types: [RecipeType]?
@@ -32,8 +31,10 @@ class ShareViewController: SLComposeServiceViewController {
     }
 
     override func isContentValid() -> Bool {
-        if urlString != nil, !self.textView.text.isEmpty{
-            return true
+        if urlString != nil,
+            !self.textView.text.isEmpty,
+            selectedType?.name != nil{
+                return true
         }
         return false
     }
@@ -92,9 +93,10 @@ class ShareViewController: SLComposeServiceViewController {
 
 extension ShareViewController: ShareSelectViewControllerDelegate{
     func selected(type: RecipeType){
-        selectedType = type
+        self.selectedType = type
         reloadConfigurationItems()
         popConfigurationViewController()
+        validateContent()
     }
 }
 
