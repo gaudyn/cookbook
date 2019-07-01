@@ -20,7 +20,7 @@ final class RecipeCollectionViewController: UICollectionViewController {
     
     private var recipeKinds: [RecipeKind]!
     
-    let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first
+    let DocumentsDirectory = FileManager.sharedContainerURL()
     var recipesURL: URL!
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ final class RecipeCollectionViewController: UICollectionViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
         
-        recipesURL = DocumentsDirectory?.appendingPathComponent("recipes")
+        recipesURL = DocumentsDirectory.appendingPathComponent("recipes")
         if let savedRecipes = loadRecipes(){
             recipeKinds = savedRecipes
         }

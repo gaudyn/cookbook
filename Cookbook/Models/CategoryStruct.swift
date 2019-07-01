@@ -11,8 +11,8 @@ import Foundation
 struct RecipeType: Codable{
     var name: String
     
-    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first
-    static let typesURL = DocumentsDirectory!.appendingPathComponent("types")
+    static let documentsDirectory = FileManager.sharedContainerURL()
+    static let typesURL = documentsDirectory.appendingPathComponent("types")
     
 }
 extension RecipeType{

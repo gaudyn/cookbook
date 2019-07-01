@@ -15,6 +15,8 @@ class ShareViewController: SLComposeServiceViewController {
     
     var urlString: String?
     var name: String?
+    var selectedType: RecipeType?
+    
     var types: [RecipeType]?
     
     override func viewDidLoad() {
@@ -45,7 +47,17 @@ class ShareViewController: SLComposeServiceViewController {
 
     override func configurationItems() -> [Any]! {
         // To add configuration options via table cells at the bottom of the sheet, return an array of SLComposeSheetConfigurationItem here.
-        
+        if let type = SLComposeSheetConfigurationItem(){
+            type.title = "Category"
+            type.value = self.selectedType?.name ?? ""
+            type.tapHandler = {
+                let TableVC = ShareTableViewController()
+                TableVC.delegate = self
+                TableVC.recipeTypes = self.types
+                self.pushConfigurationViewController(TableVC)
+            }
+            return [type]
+        }
         return []
     }
     
@@ -70,12 +82,22 @@ class ShareViewController: SLComposeServiceViewController {
     }
     
     func loadRecipeTypes(){
+        
         if let savedTypes = RecipeType.loadTypes(){
             self.types = savedTypes
         }
     }
 
 }
+
+extension ShareViewController: ShareSelectViewControllerDelegate{
+    func selected(type: RecipeType){
+        selectedType = type
+        reloadConfigurationItems()
+        popConfigurationViewController()
+    }
+}
+
 extension NSItemProvider{
     var isURL: Bool{
         return hasItemConformingToTypeIdentifier(kUTTypeURL as String)
