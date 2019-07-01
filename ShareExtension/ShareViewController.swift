@@ -15,28 +15,17 @@ class ShareViewController: SLComposeServiceViewController {
     
     var urlString: String?
     var name: String?
+    var types: [RecipeType]?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.title = "Add"
+        changePostButton()
         
-        let extensionItem = extensionContext?.inputItems[0] as! NSExtensionItem
+        setSelfURL()
         
-        let contentTypeURL = kUTTypeURL as String
-        let contentTypeText = kUTTypeText as String
-        
-        for attachment in extensionItem.attachments as! [NSItemProvider]{
-            if attachment.isURL{
-                attachment.loadItem(forTypeIdentifier: contentTypeURL, options: nil, completionHandler: { (result, error) in
-                    let url = result as! URL?
-                    self.urlString = url!.absoluteString
-                    _ = self.isContentValid()
-                })
-            }
-        }
-        
+        loadRecipeTypes()
         
     }
 
@@ -58,6 +47,32 @@ class ShareViewController: SLComposeServiceViewController {
         // To add configuration options via table cells at the bottom of the sheet, return an array of SLComposeSheetConfigurationItem here.
         
         return []
+    }
+    
+    func changePostButton(){
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.title = "Add"
+    }
+    
+    func setSelfURL(){
+        let extensionItem = extensionContext?.inputItems[0] as! NSExtensionItem
+        
+        let contentTypeURL = kUTTypeURL as String
+        
+        for attachment in extensionItem.attachments as! [NSItemProvider]{
+            if attachment.isURL{
+                attachment.loadItem(forTypeIdentifier: contentTypeURL, options: nil, completionHandler: { (result, error) in
+                    let url = result as! URL?
+                    self.urlString = url!.absoluteString
+                    _ = self.isContentValid()
+                })
+            }
+        }
+    }
+    
+    func loadRecipeTypes(){
+        if let savedTypes = RecipeType.loadTypes(){
+            self.types = savedTypes
+        }
     }
 
 }
