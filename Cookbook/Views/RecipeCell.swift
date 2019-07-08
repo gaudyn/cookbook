@@ -22,14 +22,14 @@ class RecipeCell: UICollectionViewCell {
     }
     
     private func createGradientLayer(){
-        let gradient = CAGradientLayer()
-        gradient.frame = self.RecipePhoto.bounds
-        gradient.colors = [UIColor(red: 1, green: 1, blue: 1, alpha: 0).cgColor,
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.RecipePhoto.bounds
+        gradientLayer.colors = [UIColor(red: 1, green: 1, blue: 1, alpha: 0).cgColor,
                            UIColor(red: 1, green: 1, blue: 1, alpha: 0).cgColor,
                            UIColor(red: 1, green: 1, blue: 1, alpha: 0.5).cgColor,
                            UIColor.white.cgColor]
         
-        self.RecipePhoto.layer.insertSublayer(gradient, at: 0)
+        self.RecipePhoto.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     
