@@ -8,13 +8,11 @@
 
 import UIKit
 
-struct RecipeType: Codable{
-    var name: String
-}
+
 
 class TypesTableViewController: UITableViewController {
     
-    let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first
+    
     var typesURL: URL!
     
     var recipeTypes = [RecipeType]()
@@ -25,9 +23,8 @@ class TypesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        typesURL = DocumentsDirectory?.appendingPathComponent("types")
         
-        if let loadedTypes = loadTypes(){
+        if let loadedTypes = RecipeType.loadTypes(){
             recipeTypes = loadedTypes
         }
     }
@@ -77,7 +74,7 @@ class TypesTableViewController: UITableViewController {
         if sourceView.saving{
             recipeTypes.append(RecipeType(name: sourceView.typeNameField.text!))
             tableView.insertRows(at: [IndexPath(row: recipeTypes.count-1, section: 0)], with: .automatic)
-            try? saveTypes()
+            try? RecipeType.saveTypes(recipeTypes: recipeTypes)
         }
         
     }
@@ -111,22 +108,9 @@ class TypesTableViewController: UITableViewController {
         }
     }
     
-    func saveTypes() throws{
-        let encodedTypes = try? JSONEncoder().encode(recipeTypes)
-        do{
-            try encodedTypes?.write(to: typesURL)
-        }catch{
-            print("Couldn't save data")
-        }
-    }
     
-    func loadTypes() -> [RecipeType]?{
-        if let encodedData = try? Data(contentsOf: typesURL),
-            let encodedRecipes = try? JSONDecoder().decode([RecipeType].self, from: encodedData){
-                return encodedRecipes
-        }
-        return []
-    }
+    
+    
     
 
 }
