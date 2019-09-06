@@ -7,19 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3397BED22CAB42B00B4AEF9 /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3397BEC22CAB42B00B4AEF9 /* ShareTableViewController.swift */; };
+		C3397BEF22CAB55800B4AEF9 /* TypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3440A2922AD7B0A000C0697 /* TypeTableViewCell.swift */; };
+		C3397BF222CABDC700B4AEF9 /* sharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3397BF122CABDC700B4AEF9 /* sharedContainer.swift */; };
+		C3397BF322CABDCD00B4AEF9 /* sharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3397BF122CABDC700B4AEF9 /* sharedContainer.swift */; };
 		C3440A2822AD79DF000C0697 /* TypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3440A2722AD79DF000C0697 /* TypesTableViewController.swift */; };
 		C3440A2A22AD7B0A000C0697 /* TypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3440A2922AD7B0A000C0697 /* TypeTableViewCell.swift */; };
 		C3440A2E22AD8663000C0697 /* TypeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3440A2D22AD8663000C0697 /* TypeDetailTableViewController.swift */; };
 		C3515617226FC78600510732 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3515616226FC78600510732 /* RecipeDetailViewController.swift */; };
+		C364F89522CA5C3A008FB843 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364F89422CA5C3A008FB843 /* ShareViewController.swift */; };
+		C364F89822CA5C3A008FB843 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C364F89622CA5C3A008FB843 /* MainInterface.storyboard */; };
+		C364F89C22CA5C3A008FB843 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C364F89222CA5C3A008FB843 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C386E8052276258E008B7E9F /* RecipeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C386E8042276258E008B7E9F /* RecipeHeaderView.swift */; };
+		C388D25723230FCE00E1380D /* CookbookModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C388D25523230FCE00E1380D /* CookbookModel.xcdatamodeld */; };
 		C38BDEB2225BBA9300C7137D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BDEB1225BBA9300C7137D /* AppDelegate.swift */; };
 		C38BDEB7225BBA9300C7137D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38BDEB5225BBA9300C7137D /* Main.storyboard */; };
 		C38BDEB9225BBA9400C7137D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38BDEB8225BBA9400C7137D /* Assets.xcassets */; };
 		C38BDEBC225BBA9400C7137D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38BDEBA225BBA9400C7137D /* LaunchScreen.storyboard */; };
+		C3A7406922CAC7DF000A894B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38BDEB8225BBA9400C7137D /* Assets.xcassets */; };
 		C3C2E570226BB7B300079486 /* RecipeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2E56F226BB7B300079486 /* RecipeCollectionViewController.swift */; };
-		C3C2E572226BB94200079486 /* RecipeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2E571226BB94200079486 /* RecipeClass.swift */; };
 		C3C2E576226BC2C200079486 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2E575226BC2C200079486 /* RecipeCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C364F89A22CA5C3A008FB843 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38BDEA6225BBA9300C7137D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C364F89122CA5C3A008FB843;
+			remoteInfo = ShareExtension;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C386E801227620D3008B7E9F /* Embed App Extensions */ = {
@@ -28,6 +46,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				C364F89C22CA5C3A008FB843 /* ShareExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,16 +54,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C3397BEC22CAB42B00B4AEF9 /* ShareTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
+		C3397BF122CABDC700B4AEF9 /* sharedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharedContainer.swift; sourceTree = "<group>"; };
 		C3440A2722AD79DF000C0697 /* TypesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesTableViewController.swift; sourceTree = "<group>"; };
 		C3440A2922AD7B0A000C0697 /* TypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeTableViewCell.swift; sourceTree = "<group>"; };
 		C3440A2D22AD8663000C0697 /* TypeDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDetailTableViewController.swift; sourceTree = "<group>"; };
 		C3515616226FC78600510732 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		C364F89222CA5C3A008FB843 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C364F89422CA5C3A008FB843 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		C364F89722CA5C3A008FB843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		C364F89922CA5C3A008FB843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C364F8A322CA79D8008FB843 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
 		C36E5CDF22B6BFEB00B01073 /* recipe-detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipe-detail.png"; sourceTree = "<group>"; };
 		C36E5CE022B6BFEB00B01073 /* my-recipies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my-recipies.png"; sourceTree = "<group>"; };
 		C36E5CE122B6BFEB00B01073 /* new-category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new-category.png"; sourceTree = "<group>"; };
 		C36E5CE222B6BFEB00B01073 /* categories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = categories.png; sourceTree = "<group>"; };
 		C386E8022276239A008B7E9F /* Cookbook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cookbook.entitlements; sourceTree = "<group>"; };
 		C386E8042276258E008B7E9F /* RecipeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHeaderView.swift; sourceTree = "<group>"; };
+		C388D25623230FCE00E1380D /* CookbookModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CookbookModel.xcdatamodel; sourceTree = "<group>"; };
 		C38BDEAE225BBA9300C7137D /* Cookbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cookbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38BDEB1225BBA9300C7137D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C38BDEB6225BBA9300C7137D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,11 +79,17 @@
 		C38BDEBB225BBA9400C7137D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C38BDEBD225BBA9400C7137D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3C2E56F226BB7B300079486 /* RecipeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewController.swift; sourceTree = "<group>"; };
-		C3C2E571226BB94200079486 /* RecipeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeClass.swift; sourceTree = "<group>"; };
 		C3C2E575226BC2C200079486 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C364F88F22CA5C3A008FB843 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C38BDEAB225BBA9300C7137D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,6 +100,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C364F88922CA5BB0008FB843 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				C38BDEB1225BBA9300C7137D /* AppDelegate.swift */,
+			);
+			path = "App Delegate";
+			sourceTree = "<group>";
+		};
+		C364F88A22CA5BBE008FB843 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C388D25523230FCE00E1380D /* CookbookModel.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C364F88B22CA5BC9008FB843 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C3C2E56F226BB7B300079486 /* RecipeCollectionViewController.swift */,
+				C3515616226FC78600510732 /* RecipeDetailViewController.swift */,
+				C3440A2722AD79DF000C0697 /* TypesTableViewController.swift */,
+				C3440A2D22AD8663000C0697 /* TypeDetailTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C364F88C22CA5BEE008FB843 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C38BDEB5225BBA9300C7137D /* Main.storyboard */,
+				C3C2E575226BC2C200079486 /* RecipeCell.swift */,
+				C386E8042276258E008B7E9F /* RecipeHeaderView.swift */,
+				C3440A2922AD7B0A000C0697 /* TypeTableViewCell.swift */,
+				C38BDEBA225BBA9400C7137D /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C364F88D22CA5C00008FB843 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C386E8022276239A008B7E9F /* Cookbook.entitlements */,
+				C38BDEB8225BBA9400C7137D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C364F89322CA5C3A008FB843 /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				C364F8A322CA79D8008FB843 /* ShareExtension.entitlements */,
+				C364F89422CA5C3A008FB843 /* ShareViewController.swift */,
+				C3397BEC22CAB42B00B4AEF9 /* ShareTableViewController.swift */,
+				C364F89622CA5C3A008FB843 /* MainInterface.storyboard */,
+				C364F89922CA5C3A008FB843 /* Info.plist */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
 		C36E5CDD22B6BFEB00B01073 /* docs */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				C38BDEB0225BBA9300C7137D /* Cookbook */,
+				C364F89322CA5C3A008FB843 /* ShareExtension */,
 				C38BDEAF225BBA9300C7137D /* Products */,
 				C36E5CDD22B6BFEB00B01073 /* docs */,
 			);
@@ -99,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				C38BDEAE225BBA9300C7137D /* Cookbook.app */,
+				C364F89222CA5C3A008FB843 /* ShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,20 +201,13 @@
 		C38BDEB0225BBA9300C7137D /* Cookbook */ = {
 			isa = PBXGroup;
 			children = (
-				C386E8022276239A008B7E9F /* Cookbook.entitlements */,
-				C38BDEB1225BBA9300C7137D /* AppDelegate.swift */,
-				C38BDEB5225BBA9300C7137D /* Main.storyboard */,
-				C3C2E571226BB94200079486 /* RecipeClass.swift */,
-				C3C2E575226BC2C200079486 /* RecipeCell.swift */,
-				C386E8042276258E008B7E9F /* RecipeHeaderView.swift */,
-				C3C2E56F226BB7B300079486 /* RecipeCollectionViewController.swift */,
-				C3515616226FC78600510732 /* RecipeDetailViewController.swift */,
-				C3440A2722AD79DF000C0697 /* TypesTableViewController.swift */,
-				C3440A2922AD7B0A000C0697 /* TypeTableViewCell.swift */,
-				C3440A2D22AD8663000C0697 /* TypeDetailTableViewController.swift */,
-				C38BDEB8225BBA9400C7137D /* Assets.xcassets */,
-				C38BDEBA225BBA9400C7137D /* LaunchScreen.storyboard */,
+				C364F88922CA5BB0008FB843 /* App Delegate */,
 				C38BDEBD225BBA9400C7137D /* Info.plist */,
+				C364F88A22CA5BBE008FB843 /* Models */,
+				C364F88D22CA5C00008FB843 /* Resources */,
+				C364F88B22CA5BC9008FB843 /* View Controllers */,
+				C364F88C22CA5BEE008FB843 /* Views */,
+				C3397BF122CABDC700B4AEF9 /* sharedContainer.swift */,
 			);
 			path = Cookbook;
 			sourceTree = "<group>";
@@ -127,6 +215,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C364F89122CA5C3A008FB843 /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C364F89D22CA5C3A008FB843 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				C364F88E22CA5C3A008FB843 /* Sources */,
+				C364F88F22CA5C3A008FB843 /* Frameworks */,
+				C364F89022CA5C3A008FB843 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			productName = ShareExtension;
+			productReference = C364F89222CA5C3A008FB843 /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		C38BDEAD225BBA9300C7137D /* Cookbook */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C38BDED6225BBA9500C7137D /* Build configuration list for PBXNativeTarget "Cookbook" */;
@@ -139,6 +244,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C364F89B22CA5C3A008FB843 /* PBXTargetDependency */,
 			);
 			name = Cookbook;
 			productName = Cookbook;
@@ -155,11 +261,19 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Gaudyn;
 				TargetAttributes = {
+					C364F89122CA5C3A008FB843 = {
+						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					C38BDEAD225BBA9300C7137D = {
 						CreatedOnToolsVersion = 10.2;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -179,11 +293,21 @@
 			projectRoot = "";
 			targets = (
 				C38BDEAD225BBA9300C7137D /* Cookbook */,
+				C364F89122CA5C3A008FB843 /* ShareExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C364F89022CA5C3A008FB843 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3A7406922CAC7DF000A894B /* Assets.xcassets in Resources */,
+				C364F89822CA5C3A008FB843 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C38BDEAC225BBA9300C7137D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -197,25 +321,53 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C364F88E22CA5C3A008FB843 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3397BEF22CAB55800B4AEF9 /* TypeTableViewCell.swift in Sources */,
+				C3397BF322CABDCD00B4AEF9 /* sharedContainer.swift in Sources */,
+				C364F89522CA5C3A008FB843 /* ShareViewController.swift in Sources */,
+				C3397BED22CAB42B00B4AEF9 /* ShareTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C38BDEAA225BBA9300C7137D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3397BF222CABDC700B4AEF9 /* sharedContainer.swift in Sources */,
 				C3C2E570226BB7B300079486 /* RecipeCollectionViewController.swift in Sources */,
 				C3440A2E22AD8663000C0697 /* TypeDetailTableViewController.swift in Sources */,
 				C38BDEB2225BBA9300C7137D /* AppDelegate.swift in Sources */,
 				C3C2E576226BC2C200079486 /* RecipeCell.swift in Sources */,
 				C386E8052276258E008B7E9F /* RecipeHeaderView.swift in Sources */,
+				C388D25723230FCE00E1380D /* CookbookModel.xcdatamodeld in Sources */,
 				C3515617226FC78600510732 /* RecipeDetailViewController.swift in Sources */,
 				C3440A2822AD79DF000C0697 /* TypesTableViewController.swift in Sources */,
-				C3C2E572226BB94200079486 /* RecipeClass.swift in Sources */,
 				C3440A2A22AD7B0A000C0697 /* TypeTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C364F89B22CA5C3A008FB843 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C364F89122CA5C3A008FB843 /* ShareExtension */;
+			targetProxy = C364F89A22CA5C3A008FB843 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		C364F89622CA5C3A008FB843 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C364F89722CA5C3A008FB843 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		C38BDEB5225BBA9300C7137D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -235,6 +387,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C364F89E22CA5C3A008FB843 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AV9DM695WT;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Gaudyn.Cookbook.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C364F89F22CA5C3A008FB843 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AV9DM695WT;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Gaudyn.Cookbook.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		C38BDED4225BBA9500C7137D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -354,7 +546,9 @@
 		C38BDED7225BBA9500C7137D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cookbook/Resources/Cookbook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AV9DM695WT;
 				INFOPLIST_FILE = Cookbook/Info.plist;
@@ -372,7 +566,9 @@
 		C38BDED8225BBA9500C7137D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cookbook/Resources/Cookbook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AV9DM695WT;
 				INFOPLIST_FILE = Cookbook/Info.plist;
@@ -390,6 +586,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C364F89D22CA5C3A008FB843 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C364F89E22CA5C3A008FB843 /* Debug */,
+				C364F89F22CA5C3A008FB843 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C38BDEA9225BBA9300C7137D /* Build configuration list for PBXProject "Cookbook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -409,6 +614,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C388D25523230FCE00E1380D /* CookbookModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C388D25623230FCE00E1380D /* CookbookModel.xcdatamodel */,
+			);
+			currentVersion = C388D25623230FCE00E1380D /* CookbookModel.xcdatamodel */;
+			path = CookbookModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C38BDEA6225BBA9300C7137D /* Project object */;
 }
